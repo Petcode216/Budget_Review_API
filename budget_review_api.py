@@ -9,11 +9,14 @@ load_dotenv()
 
 openai.api_key = os.getenv("OPENAI_API_KEY")
 app = FastAPI()
+@app.get("/")
+async def root():
+    return {"message": "👋 Welcome to the Budget Review API. Visit /docs to try it."}
 
 @app.post("/review/")
-async def review_financial_profile(file_path):
-    with open(file_path, "r", encoding="utf-8") as f:
-        data = json.load(f)
+async def review_financial_profile(file: UploadFile):
+    contents = await file.read()
+    data = json.loads(contents.decode("utf-8"))
 
     profile = data["profile"]
     thresholds = data.get("thresholds", {})
@@ -81,8 +84,3 @@ Trả lời bằng tiếng Việt, giọng nhẹ nhàng và hữu ích.
     )
 
     return response['choices'][0]['message']['content']
-
-#Chạy thử để test
-if __name__ == "__main__":
-    result = asyncio.run(review_financial_profile("data.json"))
-    print(result)
