@@ -1,0 +1,55 @@
+{
+  "profile": {
+    "type": "MONTHLY", 
+    "currentLimit": 10000000,
+    "income": 10000000,
+    "expense": -5000000,
+    "currentExpense": null,
+    "depts": [
+      {
+        "name": "tiền xe",
+        "deadline": "2025-07-01",
+        "target": 50000000,
+        "currentAmount": 30000000
+      },
+      {
+        "name": "tiền nhà",
+        "deadline": "2026-07-01",
+        "target": 500000000,
+        "currentAmount": 10000000
+      }
+    ],
+
+    "transactions": [
+      {
+        "totalExpense": -10000,   
+        "totalIncome": 0, 
+        "category": "thời trang"
+      },
+      {
+        "totalExpense": -10000,
+        "totalIncome": 0,  
+        "category": "ăn uống"
+      },
+      {
+        "totalExpense": -100000,   
+        "totalIncome": 0,  
+        "category": "phí đi lại"
+      },
+      {
+        "totalExpense": -100000,   
+        "totalIncome": 500000,  
+        "category": "vay"
+      },
+      {
+        "totalExpense": -10000,
+        "totalIncome": 0,  
+        "category": "giải trí"
+      }
+    ]
+  },
+  "thresholds": {
+    "max_discretionary_pct": 0.2,
+    "suggested_max_shopping_pct": 0.05
+  }
+}
